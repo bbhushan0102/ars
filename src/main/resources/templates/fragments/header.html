@@ -3,6 +3,16 @@
 <head>
     <script>window.GOVUKFrontend.initAll()</script>
 </head>
+<style>
+    .govuk-select {
+        font-size: 16px;
+        margin: 5px;
+    }
+    .govuk-button {
+        font-size: 14px;
+        padding: 5px 10px;
+    }
+</style>
 <body>
 <header class="govuk-header" role="banner" data-module="govuk-header" th:fragment="govukHeader">
     <div class="govuk-header__container govuk-width-container">
@@ -18,5 +28,15 @@
 </header>
 <!-- Include the progress bar in every page -->
 <div th:replace="~{fragments/progressBar}"></div>
+
+<!-- Language Toggle -->
+<form action="/set-language" method="get" class="govuk-form-group">
+    <select name="lang" class="govuk-select">
+        <option th:selected="${session.lang == 'en'}" value="en">English</option>
+        <option th:selected="${session.lang == 'cy'}" value="cy">Cymraeg (Welsh)</option>
+    </select>
+    <button type="submit" class="govuk-button govuk-button--secondary">Switch</button>
+</form>
+
 </body>
 </html>

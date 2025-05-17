@@ -7,8 +7,9 @@
 
     <title th:text="${question.title}">Question</title>
 </head>
-<div th:replace="~{fragments/header :: govukHeader}"></div>
-<div th:replace="~{fragments/progressBar}"></div>
+
+<th:block th:replace="~{fragments/header.html}"></th:block>
+<!--<div th:replace="~{fragments/progressBar}"></div>-->
 <body>
 <h1 th:text="${question.title}"></h1>
 <p th:text="${question.text}"></p>
