@@ -1,0 +1,35 @@
+[
+  {
+    "id": "government-contracts",
+    "title": { "en": "Government Contracts", "cy": "Contractau Llywodraeth" },
+    "text": { "en": "Did your charity receive any government contracts?", "cy": "A gafodd eich elusen unrhyw gontractau gan y llywodraeth?" },
+    "guidance": { "en": "Paid agreements to deliver public services.", "cy": "Cytundebau â thâl i ddarparu gwasanaethau cyhoeddus." },
+    "type": "radio",
+    "options": { "en": ["Yes", "No"], "cy": ["Ie", "Na"] },
+    "errors": { "en": "Please select an option.", "cy": "Dewiswch opsiwn." }
+  },
+  {
+    "id": "funding-sources",
+    "title": { "en": "Funding Sources", "cy": "Ffynonellau Ariannu" },
+    "text": { "en": "What are your charity’s main sources of funding?", "cy": "Beth yw prif ffynonellau ariannu eich elusen?" },
+    "guidance": { "en": "Select all sources that apply.", "cy": "Dewiswch yr holl ffynonellau sy’n berthnasol." },
+    "type": "checkbox",
+    "options": {
+      "en": ["Grants", "Donations", "Membership Fees", "Government Funding", "Other"],
+      "cy": ["Grantiau", "Rhoddion", "Ffioedd Aelodaeth", "Ariannu Llywodraeth", "Arall"]
+    },
+    "errors": { "en": "Please select at least one option.", "cy": "Dewiswch o leiaf un opsiwn." }
+  },
+  {
+    "id": "income-countries",
+    "title": { "en": "Income Sources Outside UK", "cy": "Ffynonellau Incwm y Tu Allan i’r DU" },
+    "text": { "en": "Which countries does your charity receive income from outside the UK?", "cy": "O ba wledydd y mae eich elusen yn cael incwm y tu allan i’r DU?" },
+    "guidance": { "en": "Select the countries from the dropdown.", "cy": "Dewiswch y gwledydd o’r gwymplen." },
+    "type": "multiselect",
+    "options": {
+      "en": ["USA", "Canada", "Germany", "France", "India", "Australia", "China", "Japan", "Brazil"],
+      "cy": ["UDA", "Canada", "Yr Almaen", "Ffrainc", "India", "Awstralia", "Tsieina", "Siapan", "Brasil"]
+    },
+    "errors": { "en": "Please select at least one country.", "cy": "Dewiswch o leiaf un wlad." }
+  }
+]
