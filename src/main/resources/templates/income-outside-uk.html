@@ -1,0 +1,104 @@
+<!--<!DOCTYPE html>-->
+<!--<html xmlns:th="http://www.thymeleaf.org">-->
+<!--<head>-->
+<!--    <title th:text="${question.title}">Question</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--<h1 th:text="${question.title}"></h1>-->
+<!--<p th:text="${question.text}"></p>-->
+<!--<p th:text="${question.guidance}"></p>-->
+
+<!--<form th:action="@{/government-contracts}" th:object="${question}" method="post">-->
+
+<!--    <input type="hidden" th:field="*{questionId}" />-->
+<!--    <input type="hidden" th:field="*{title}" />-->
+<!--    <input type="hidden" th:field="*{text}" />-->
+<!--    <input type="hidden" th:field="*{guidance}" />-->
+<!--    <input type="hidden" th:field="*{type}" />-->
+<!--    <input type="hidden" th:each="opt : ${question.options}" th:field="*{options}" th:value="${opt}" />-->
+
+<!--    <div th:each="opt : ${question.options}">-->
+<!--        <input type="radio" th:field="*{selectedOption}" th:value="${opt}" th:id="${opt}" />-->
+<!--        <label th:for="${opt}" th:text="${opt}"></label>-->
+<!--    </div>-->
+
+<!--    <div th:if="${#fields.hasErrors('selectedOption')}" th:errors="*{selectedOption}" style="color:red"></div>-->
+
+<!--    <button type="submit">Continue</button>-->
+<!--</form>-->
+<!--</body>-->
+<!--</html>-->
+
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Income Sources Outside UK</title>
+    <style>
+        .container {
+            display: flex;
+        }
+        .country-list {
+            width: 40%;
+            height: 200px;
+            overflow-y: scroll;
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+        .selected-countries {
+            width: 40%;
+            height: 200px;
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+    <script>
+        function updateSelectedCountries() {
+            let selectedList = document.getElementById("selected-countries-list");
+            selectedList.innerHTML = "";
+
+            document.querySelectorAll("input[name='countries']:checked").forEach(checkbox => {
+                let item = document.createElement("div");
+                item.innerHTML = `<input type="checkbox" checked onclick="deselectCountry('${checkbox.value}')">${checkbox.value}`;
+                selectedList.appendChild(item);
+            });
+        }
+
+        function deselectCountry(country) {
+            document.querySelector(`input[name='countries'][value='${country}']`).checked = false;
+            updateSelectedCountries();
+        }
+    </script>
+</head>
+<body>
+
+<h1>Income Sources Outside UK</h1>
+<p>Select the countries where your charity receives income outside the UK.</p>
+
+<div class="container">
+    <!-- Scrollable Country List -->
+    <div class="country-list">
+        <p><strong>Select Countries:</strong></p>
+        <div th:each="option : ${question.options}">
+            <input type="checkbox" th:value="${option}" th:name="countries" onclick="updateSelectedCountries()">
+            <label th:text="${option}"></label>
+        </div>
+    </div>
+
+    <!-- Selected Countries Box -->
+    <div class="selected-countries">
+        <p><strong>Selected Countries:</strong></p>
+        <div id="selected-countries-list"></div>
+    </div>
+</div>
+
+<form action="/submit-income-countries" method="post">
+    <input type="hidden" name="selectedCountries" id="selectedCountriesValue">
+    <button type="submit" onclick="updateSelectedCountries()">Submit</button>
+</form>
+
+</body>
+</html>

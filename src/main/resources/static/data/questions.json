@@ -1,0 +1,31 @@
+[
+  {
+    "QuestionId": "government-contracts",
+    "title": "Government Contracts",
+    "text": "Did your charity receive any government contracts?",
+    "guidance": "Paid agreements to deliver public services.",
+    "type": "radio",
+    "options": ["Yes", "No"],
+    "errors": {
+      "required": "Please select an option."
+    }
+  },
+  {
+    "QuestionId": "government-grants",
+    "title": "Government Grants",
+    "text": "Did your charity receive government grants?",
+    "guidance": "Grants are typically non-repayable support.",
+    "type": "radio",
+    "options": ["Yes", "No"],
+    "errors": { "required": "Please select an option." }
+  },
+  {
+    "QuestionId": "income-outside-uk",
+    "title": "Income Sources Outside UK",
+    "text": "Which countries does your charity receive income from outside the UK?",
+    "guidance": "Select the countries from the dropdown.",
+    "type": "multiselect",
+    "options": ["USA", "Canada", "Germany", "France", "India", "Australia", "China", "Japan", "Brazil"],
+    "errors": { "required": "Please select at least one country." }
+  }
+]
